@@ -9,6 +9,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.RowFilter;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.SwingConstants;
@@ -16,6 +17,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.JComboBox;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
@@ -27,6 +30,7 @@ import java.awt.Font;
 import javax.swing.JCheckBox;
 import javax.swing.JSeparator;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import javax.swing.JScrollPane;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
@@ -38,20 +42,13 @@ public class VistaWB extends JFrame implements Vista {
 	private ModeloWB modelo;
 	private ControladorWB controlador;
 	private ModeloBBDD modelo2;
-
 	private Container contenedor;
 	private JPanel contentPane;
 	private JPanel ArrVistas[];
-	private JTextField NIFBusquedaPJ;
-	private JTextField txtfActBusqueda;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
-	private final ButtonGroup buttonGroup_3 = new ButtonGroup();
-
 	private JTable table;
-	private final ButtonGroup buttonGroup_4 = new ButtonGroup();
 	private JButton btnConfiguracion;
+	private JTextField txtnRegistro;
+	private TableRowSorter trOrden;
 
 	public void setControlador(Controlador controlador) {
 
@@ -142,6 +139,7 @@ public class VistaWB extends JFrame implements Vista {
 					.addComponent(Contenedor, GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
 					.addContainerGap())
 		);
+		
 		Contenedor.setLayout(new CardLayout(0, 0));
 
 		JPanel VisualizarLicencias = new JPanel();
@@ -149,13 +147,42 @@ public class VistaWB extends JFrame implements Vista {
 		ArrVistas[0] = VisualizarLicencias;
 
 		JScrollPane scrollPane_1 = new JScrollPane();
+		
+		txtnRegistro = new JTextField();
+		txtnRegistro.setColumns(10);
+		txtnRegistro.addKeyListener(new KeyAdapter() {
+	           @Override
+	           public void keyTyped(KeyEvent arg0) {
+	                  txtnRegistro.addKeyListener(new KeyAdapter() {
+	                         public void keyReleased(final KeyEvent arg0) {
+	                               filtroRegistro();
+	                         }
+	                  });
+	                  trOrden = new TableRowSorter(table.getModel());
+	                  table.setRowSorter(trOrden);
+	           }
+	    });
+		
+		
+		
 		GroupLayout gl_VisualizarLicencias = new GroupLayout(VisualizarLicencias);
-		gl_VisualizarLicencias.setHorizontalGroup(gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
-				.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE));
-		gl_VisualizarLicencias.setVerticalGroup(gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_VisualizarLicencias.createSequentialGroup().addContainerGap()
-						.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 474, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		gl_VisualizarLicencias.setHorizontalGroup(
+			gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
+				.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
+				.addGroup(gl_VisualizarLicencias.createSequentialGroup()
+					.addGap(10)
+					.addComponent(txtnRegistro, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		gl_VisualizarLicencias.setVerticalGroup(
+			gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_VisualizarLicencias.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 474, GroupLayout.PREFERRED_SIZE)
+					.addGap(103)
+					.addComponent(txtnRegistro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(21, Short.MAX_VALUE))
+		);
 
 		table = new JTable() {
 			private static final long serialVersionUID = 9082642090247275215L;
@@ -180,13 +207,10 @@ public class VistaWB extends JFrame implements Vista {
 		table.setColumnSelectionAllowed(false);
 		scrollPane_1.setViewportView(table);
 		VisualizarLicencias.setLayout(gl_VisualizarLicencias);
-
-		
 		panel_2.setLayout(gl_panel_2);
 		contentPane.setLayout(null);
 		contentPane.add(btnConfiguracion);
 		contentPane.add(panel_2);
-
 	}
 
 	public void clear_Table() {
@@ -195,14 +219,6 @@ public class VistaWB extends JFrame implements Vista {
 			dm.removeRow(i);
 			i -= 1;
 		}
-	}
-
-	public String getNIFBusquedaPJ() {
-		return NIFBusquedaPJ.getText();
-	}
-
-	public String getTxtfActBusqueda() {
-		return txtfActBusqueda.getText();
 	}
 
 	public void RellenarTabla(Object[][] aaa) {
@@ -214,6 +230,13 @@ public class VistaWB extends JFrame implements Vista {
 	public void setDatosTabla() {
 		Object[][] tabla = modelo2.getTabla();
 		this.RellenarTabla(tabla);
-
 	}
+	
+	public void filtroRegistro() {
+    	trOrden.setRowFilter(RowFilter.regexFilter(txtnRegistro.getText(), 0));
+
+    }
+
+    
 }
+

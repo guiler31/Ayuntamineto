@@ -116,9 +116,10 @@ public class ModeloBBDD implements Modelo {
 				"SELECT * FROM actividad join relintrep on actividad.idIntRep = relintrep.id JOIN interesado on relintrep.idInteresado = interesado.id");
 	}
 
+
 	public String[][] getTabla() {
 		tabla2 = new String[tabla.length][5];
-		// System.out.println(tabla[0].length);
+		//System.out.println(tabla[0].length);
 		for (int i = 0; i < tabla.length; i++) {
 
 			for (int j = 0; j < tabla[i].length; j++) {
