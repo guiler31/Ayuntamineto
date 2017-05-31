@@ -34,9 +34,6 @@ public class VistaFicheroIni extends JFrame implements Vista{
 	private JButton btnModificar;
 	private JButton btnOk;
 
-
-	private JButton btnCerrar;
-
 	/**
 	 * Launch the application.
 	 */
@@ -47,13 +44,13 @@ public class VistaFicheroIni extends JFrame implements Vista{
 	public VistaFicheroIni() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 495, 232);
+		setBounds(100, 100, 398, 232);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
 		txtfBaseDatos = new JTextField();
-		txtfBaseDatos.setBounds(234, 23, 245, 20);
+		txtfBaseDatos.setBounds(168, 23, 210, 20);
 		txtfBaseDatos.setEnabled(false);
 		txtfBaseDatos.setColumns(10);
 
@@ -64,7 +61,7 @@ public class VistaFicheroIni extends JFrame implements Vista{
 		lblLogin.setBounds(15, 57, 189, 14);
 
 		txtfLogin = new JTextField();
-		txtfLogin.setBounds(234, 54, 245, 20);
+		txtfLogin.setBounds(168, 54, 210, 20);
 		txtfLogin.setEnabled(false);
 		txtfLogin.setColumns(10);
 
@@ -72,7 +69,7 @@ public class VistaFicheroIni extends JFrame implements Vista{
 		lblPassword.setBounds(15, 88, 189, 14);
 
 		txtfPassword = new JTextField();
-		txtfPassword.setBounds(234, 85, 245, 20);
+		txtfPassword.setBounds(168, 85, 210, 20);
 		txtfPassword.setEnabled(false);
 		txtfPassword.setColumns(10);
 
@@ -80,32 +77,22 @@ public class VistaFicheroIni extends JFrame implements Vista{
 		lbl.setBounds(15, 119, 189, 14);
 
 		txtfURL = new JTextField();
-		txtfURL.setBounds(234, 116, 245, 20);
+		txtfURL.setBounds(168, 116, 210, 20);
 		txtfURL.setEnabled(false);
 		txtfURL.setColumns(10);
 		
-		btnOk = new JButton("Aceptar");
+		btnOk = new JButton("Guardar");
 		btnOk.setBounds(287, 169, 91, 23);
 		btnOk.setEnabled(false);
 		
-		
-		btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBounds(388, 169, 91, 23);
-		btnCerrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
-		
-		btnModificar = new JButton("Modificar");
-		btnModificar.setBounds(186, 169, 91, 23);
+		btnModificar = new JButton("Habilitar edicion");
+		btnModificar.setBounds(144, 169, 125, 23);
 		contentPane.setLayout(null);
 		contentPane.add(lblPassword);
 		contentPane.add(txtfURL);
 		contentPane.add(txtfPassword);
 		contentPane.add(btnOk);
 		contentPane.add(btnModificar);
-		contentPane.add(btnCerrar);
 		contentPane.add(lblBaseDeDatos);
 		contentPane.add(txtfBaseDatos);
 		contentPane.add(lblLogin);
@@ -121,6 +108,7 @@ public class VistaFicheroIni extends JFrame implements Vista{
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controlador.GuardarDatos();
+				dispose();
 			}
 		});
 	}

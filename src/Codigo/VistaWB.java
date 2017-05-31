@@ -147,42 +147,7 @@ public class VistaWB extends JFrame implements Vista {
 		ArrVistas[0] = VisualizarLicencias;
 
 		JScrollPane scrollPane_1 = new JScrollPane();
-		
-		txtnRegistro = new JTextField();
-		txtnRegistro.setColumns(10);
-		txtnRegistro.addKeyListener(new KeyAdapter() {
-	           @Override
-	           public void keyTyped(KeyEvent arg0) {
-	                  txtnRegistro.addKeyListener(new KeyAdapter() {
-	                         public void keyReleased(final KeyEvent arg0) {
-	                               filtroRegistro();
-	                         }
-	                  });
-	                  trOrden = new TableRowSorter(table.getModel());
-	                  table.setRowSorter(trOrden);
-	           }
-	    });
-		
-		
-		
-		GroupLayout gl_VisualizarLicencias = new GroupLayout(VisualizarLicencias);
-		gl_VisualizarLicencias.setHorizontalGroup(
-			gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
-				.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
-				.addGroup(gl_VisualizarLicencias.createSequentialGroup()
-					.addGap(10)
-					.addComponent(txtnRegistro, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-		);
-		gl_VisualizarLicencias.setVerticalGroup(
-			gl_VisualizarLicencias.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_VisualizarLicencias.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 474, GroupLayout.PREFERRED_SIZE)
-					.addGap(103)
-					.addComponent(txtnRegistro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(21, Short.MAX_VALUE))
-		);
+		scrollPane_1.setBounds(10, 181, 752, 437);
 
 		table = new JTable() {
 			private static final long serialVersionUID = 9082642090247275215L;
@@ -202,11 +167,43 @@ public class VistaWB extends JFrame implements Vista {
 				}
 			}
 		});
+		VisualizarLicencias.setLayout(null);
 
 		table.setRowSelectionAllowed(true);
 		table.setColumnSelectionAllowed(false);
 		scrollPane_1.setViewportView(table);
-		VisualizarLicencias.setLayout(gl_VisualizarLicencias);
+		VisualizarLicencias.add(scrollPane_1);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(10, 0, 160, 179);
+		VisualizarLicencias.add(label);
+		label.setIcon(new ImageIcon(VistaWB.class.getResource("/Codigo/newlogo.png")));
+		
+		JLabel lblHacerDobleClick = new JLabel("Recuerda: Hacer doble click sobre la tabla para editar datos.");
+		lblHacerDobleClick.setBounds(180, 80, 460, 14);
+		VisualizarLicencias.add(lblHacerDobleClick);
+		
+		JLabel lblBuscarPorNumero = new JLabel("Buscar por Numero de Registro");
+		lblBuscarPorNumero.setBounds(180, 24, 292, 14);
+		VisualizarLicencias.add(lblBuscarPorNumero);
+		lblBuscarPorNumero.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		
+		txtnRegistro = new JTextField();
+		txtnRegistro.setBounds(180, 49, 292, 20);
+		VisualizarLicencias.add(txtnRegistro);
+		txtnRegistro.setColumns(10);
+		txtnRegistro.addKeyListener(new KeyAdapter() {
+	           @Override
+	           public void keyTyped(KeyEvent arg0) {
+	                  txtnRegistro.addKeyListener(new KeyAdapter() {
+	                         public void keyReleased(final KeyEvent arg0) {
+	                               filtroRegistro();
+	                         }
+	                  });
+	                  trOrden = new TableRowSorter(table.getModel());
+	                  table.setRowSorter(trOrden);
+	           }
+	    });
 		panel_2.setLayout(gl_panel_2);
 		contentPane.setLayout(null);
 		contentPane.add(btnConfiguracion);
@@ -236,7 +233,5 @@ public class VistaWB extends JFrame implements Vista {
     	trOrden.setRowFilter(RowFilter.regexFilter(txtnRegistro.getText(), 0));
 
     }
-
-    
 }
 
