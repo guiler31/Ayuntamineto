@@ -11,6 +11,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -48,17 +50,27 @@ public class VistaAuxTabla extends JFrame {
 	private JTextField textField_10;
 	private JTextField textField_11;
 	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
-	private JTextField textField_16;
-	private JTextField textField_18;
-	private JTextField textField_19;
-	private JTextField textField_20;
-	private JTextField textField_21;
-	private JTextField textField_22;
+	private JTextField txtfCp2;
+	private JTextField txtfTelFijo2;
+	private JTextField txtfTelMovil2;
+	private JTextField txtfFax;
+	private JTextField txtfNombre2;
+	private JTextField txtfApellidos2;
+	private JTextField txtfDni2;
+	private JTextField txtfDireccion2;
+	private JTextField txtfMunicipio2;
 	private JTextField textField_17;
 	private JTextField textField_23;
+	private JLabel lblNombre2;
+	private JLabel lblApellidos2;
+	private JLabel lblDocumentoIdentidad;
+	private JLabel lblDireccion_1;
+	private JLabel lblMunicipio_1;
+	private JLabel lblCodigoPostal_1;
+	private JLabel lblTlfFijo_1;
+	private JLabel lblTlfMovil_1;
+	private JLabel lblFax_1;
+	private JCheckBox chckbxRepresentate;
 
 	public VistaAuxTabla() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -200,12 +212,12 @@ public class VistaAuxTabla extends JFrame {
 		JLabel lblInteresado = new JLabel("INTERESADO");
 		lblInteresado.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInteresado.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblInteresado.setBounds(10, 322, 389, 24);
+		lblInteresado.setBounds(10, 309, 437, 24);
 		contentPane.add(lblInteresado);
 		
-		JLabel lblNewLabel_2 = new JLabel("Nombre");
-		lblNewLabel_2.setBounds(10, 360, 74, 14);
-		contentPane.add(lblNewLabel_2);
+		JLabel lblName1 = new JLabel("Nombre");
+		lblName1.setBounds(10, 360, 74, 14);
+		contentPane.add(lblName1);
 		
 		JLabel lblApellidos = new JLabel("Apellidos");
 		lblApellidos.setBounds(10, 385, 74, 14);
@@ -293,111 +305,87 @@ public class VistaAuxTabla extends JFrame {
 		textField_12.setBounds(327, 357, 120, 20);
 		contentPane.add(textField_12);
 		
-		textField_13 = new JTextField();
-		textField_13.setEnabled(false);
-		textField_13.setColumns(10);
-		textField_13.setBounds(789, 357, 150, 20);
-		contentPane.add(textField_13);
+		txtfCp2 = new JTextField();
+		txtfCp2.setColumns(10);
+		txtfCp2.setBounds(789, 357, 150, 20);
+		contentPane.add(txtfCp2);
 		
-		textField_14 = new JTextField();
-		textField_14.setEnabled(false);
-		textField_14.setColumns(10);
-		textField_14.setBounds(789, 382, 150, 20);
-		contentPane.add(textField_14);
+		txtfTelFijo2 = new JTextField();
+		txtfTelFijo2.setColumns(10);
+		txtfTelFijo2.setBounds(789, 382, 150, 20);
+		contentPane.add(txtfTelFijo2);
 		
-		textField_15 = new JTextField();
-		textField_15.setEnabled(false);
-		textField_15.setColumns(10);
-		textField_15.setBounds(789, 407, 150, 20);
-		contentPane.add(textField_15);
+		txtfTelMovil2 = new JTextField();
+		txtfTelMovil2.setColumns(10);
+		txtfTelMovil2.setBounds(789, 407, 150, 20);
+		contentPane.add(txtfTelMovil2);
 		
-		textField_16 = new JTextField();
-		textField_16.setEnabled(false);
-		textField_16.setColumns(10);
-		textField_16.setBounds(789, 432, 150, 20);
-		contentPane.add(textField_16);
+		txtfFax = new JTextField();
+		txtfFax.setColumns(10);
+		txtfFax.setBounds(789, 432, 150, 20);
+		contentPane.add(txtfFax);
 		
-		JLabel lblFax_1 = new JLabel("Fax");
-		lblFax_1.setEnabled(false);
+		lblFax_1 = new JLabel("Fax");
 		lblFax_1.setBounds(689, 435, 90, 14);
 		contentPane.add(lblFax_1);
 		
-		JLabel lblTlfMovil_1 = new JLabel("Tlf Movil");
-		lblTlfMovil_1.setEnabled(false);
+		lblTlfMovil_1 = new JLabel("Tlf Movil");
 		lblTlfMovil_1.setBounds(689, 410, 90, 14);
 		contentPane.add(lblTlfMovil_1);
 		
-		JLabel lblTlfFijo_1 = new JLabel("Tlf Fijo");
-		lblTlfFijo_1.setEnabled(false);
+		lblTlfFijo_1 = new JLabel("Tlf Fijo");
 		lblTlfFijo_1.setBounds(689, 385, 90, 14);
 		contentPane.add(lblTlfFijo_1);
 		
-		JLabel lblCodigoPostal_1 = new JLabel("Codigo Postal");
-		lblCodigoPostal_1.setEnabled(false);
+		lblCodigoPostal_1 = new JLabel("Codigo Postal");
 		lblCodigoPostal_1.setBounds(689, 360, 90, 14);
 		contentPane.add(lblCodigoPostal_1);
 		
-		textField_18 = new JTextField();
-		textField_18.setEnabled(false);
-		textField_18.setColumns(10);
-		textField_18.setBounds(525, 357, 154, 20);
-		contentPane.add(textField_18);
+		txtfNombre2 = new JTextField();
+		txtfNombre2.setColumns(10);
+		txtfNombre2.setBounds(525, 357, 154, 20);
+		contentPane.add(txtfNombre2);
 		
-		textField_19 = new JTextField();
-		textField_19.setEnabled(false);
-		textField_19.setColumns(10);
-		textField_19.setBounds(525, 382, 154, 20);
-		contentPane.add(textField_19);
+		txtfApellidos2 = new JTextField();
+		txtfApellidos2.setColumns(10);
+		txtfApellidos2.setBounds(525, 382, 154, 20);
+		contentPane.add(txtfApellidos2);
 		
-		textField_20 = new JTextField();
-		textField_20.setEnabled(false);
-		textField_20.setColumns(10);
-		textField_20.setBounds(525, 407, 154, 20);
-		contentPane.add(textField_20);
+		txtfDni2 = new JTextField();
+		txtfDni2.setColumns(10);
+		txtfDni2.setBounds(525, 407, 154, 20);
+		contentPane.add(txtfDni2);
 		
-		textField_21 = new JTextField();
-		textField_21.setEnabled(false);
-		textField_21.setColumns(10);
-		textField_21.setBounds(525, 432, 154, 20);
-		contentPane.add(textField_21);
+		txtfDireccion2 = new JTextField();
+		txtfDireccion2.setColumns(10);
+		txtfDireccion2.setBounds(525, 432, 154, 20);
+		contentPane.add(txtfDireccion2);
 		
-		textField_22 = new JTextField();
-		textField_22.setEnabled(false);
-		textField_22.setColumns(10);
-		textField_22.setBounds(525, 457, 154, 20);
-		contentPane.add(textField_22);
+		txtfMunicipio2 = new JTextField();
+		txtfMunicipio2.setColumns(10);
+		txtfMunicipio2.setBounds(525, 457, 154, 20);
+		contentPane.add(txtfMunicipio2);
 		
-		JLabel lblMunicipio_1 = new JLabel("Municipio");
-		lblMunicipio_1.setEnabled(false);
+		lblMunicipio_1 = new JLabel("Municipio");
 		lblMunicipio_1.setBounds(465, 460, 70, 14);
 		contentPane.add(lblMunicipio_1);
 		
-		JLabel lblDireccion_1 = new JLabel("Direccion");
-		lblDireccion_1.setEnabled(false);
+		lblDireccion_1 = new JLabel("Direccion");
 		lblDireccion_1.setBounds(465, 435, 70, 14);
 		contentPane.add(lblDireccion_1);
 		
-		JLabel lblDocumentoIdentidad = new JLabel("DNI");
-		lblDocumentoIdentidad.setEnabled(false);
+		lblDocumentoIdentidad = new JLabel("DNI");
 		lblDocumentoIdentidad.setBounds(465, 410, 70, 14);
 		contentPane.add(lblDocumentoIdentidad);
 		
-		JLabel lblApellidos_1 = new JLabel("Apellidos");
-		lblApellidos_1.setEnabled(false);
-		lblApellidos_1.setBounds(465, 385, 70, 14);
-		contentPane.add(lblApellidos_1);
+		lblApellidos2 = new JLabel("Apellidos");
+		lblApellidos2.setBounds(465, 385, 70, 14);
+		contentPane.add(lblApellidos2);
 		
-		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setEnabled(false);
-		lblNombre.setBounds(465, 360, 70, 14);
-		contentPane.add(lblNombre);
-		
-		JCheckBox chckbxRepresentante = new JCheckBox("REPRESENTANTE");
-		chckbxRepresentante.setHorizontalAlignment(SwingConstants.CENTER);
-		chckbxRepresentante.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		chckbxRepresentante.setBounds(465, 322, 478, 24);
-		contentPane.add(chckbxRepresentante);
-		
+		lblNombre2 = new JLabel("Nombre");
+		lblNombre2.setBounds(465, 360, 70, 14);
+		contentPane.add(lblNombre2);
+
 		JSeparator separator = new JSeparator();
 		separator.setForeground(Color.LIGHT_GRAY);
 		separator.setBounds(14, 309, 929, 2);
@@ -440,6 +428,72 @@ public class VistaAuxTabla extends JFrame {
 		separator_2.setForeground(Color.LIGHT_GRAY);
 		separator_2.setBounds(14, 485, 929, 2);
 		contentPane.add(separator_2);
+		
+		chckbxRepresentate = new JCheckBox("REPRESENTATE");
+		chckbxRepresentate.setHorizontalAlignment(SwingConstants.CENTER);
+		chckbxRepresentate.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		chckbxRepresentate.setSelected(true);
+		chckbxRepresentate.setBounds(465, 309, 478, 23);
+		contentPane.add(chckbxRepresentate);
+		
+		chckbxRepresentate.addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				
+				if (e.getStateChange() == ItemEvent.SELECTED){
+					
+					System.err.println("1");
+					
+					lblNombre2.setEnabled(true);
+					lblApellidos2.setEnabled(true);
+					lblDocumentoIdentidad.setEnabled(true);
+					lblDireccion_1.setEnabled(true);
+					lblMunicipio_1.setEnabled(true);
+					lblCodigoPostal_1.setEnabled(true);
+					lblTlfFijo_1.setEnabled(true);
+					lblTlfMovil_1.setEnabled(true);
+					lblFax_1.setEnabled(true);
+					
+					txtfNombre2.setEnabled(true);
+					txtfApellidos2.setEnabled(true);
+					txtfCp2.setEnabled(true);
+					txtfDni2.setEnabled(true);
+					txtfDireccion2.setEnabled(true);
+					txtfMunicipio2.setEnabled(true);
+					txtfFax.setEnabled(true);
+					txtfTelFijo2.setEnabled(true);
+					txtfTelMovil2.setEnabled(true);
+					
+				} else {
+					
+					System.err.println("2");
+					
+					lblNombre2.setEnabled(false);
+					lblApellidos2.setEnabled(false);
+					lblDocumentoIdentidad.setEnabled(false);
+					lblDireccion_1.setEnabled(false);
+					lblMunicipio_1.setEnabled(false);
+					lblCodigoPostal_1.setEnabled(false);
+					lblTlfFijo_1.setEnabled(false);
+					lblTlfMovil_1.setEnabled(false);
+					lblFax_1.setEnabled(false);
+					
+					txtfNombre2.setEnabled(false);
+					txtfApellidos2.setEnabled(false);
+					txtfCp2.setEnabled(false);
+					txtfDni2.setEnabled(false);
+					txtfDireccion2.setEnabled(false);
+					txtfMunicipio2.setEnabled(false);
+					txtfFax.setEnabled(false);
+					txtfTelFijo2.setEnabled(false);
+					txtfTelMovil2.setEnabled(false);
+					
+				}
+				
+			}
+		});
+		
 	}
 
 	public void setControlador(Controlador controlador) {
@@ -459,3 +513,4 @@ public class VistaAuxTabla extends JFrame {
 
 	}
 }
+
