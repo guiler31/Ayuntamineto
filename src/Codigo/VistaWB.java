@@ -49,6 +49,9 @@ public class VistaWB extends JFrame implements Vista {
 	private JButton btnConfiguracion;
 	private JTextField txtnRegistro;
 	private TableRowSorter trOrden;
+	private JRadioButton rdbtnNumReg;
+	private JRadioButton rdbtnCif;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	public void setControlador(Controlador controlador) {
 
@@ -107,39 +110,32 @@ public class VistaWB extends JFrame implements Vista {
 		lblRutaDeAcceso.setText("Inscribir Licencia de Actividad");
 
 		JPanel Contenedor = new JPanel();
-		
+
 		JButton btnAdd = new JButton("Nueva Solicitud");
-		
+
 		JButton btnUpdate = new JButton("Actualizar");
 
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(
-			gl_panel_2.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
+		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING).addGroup(gl_panel_2
+				.createSequentialGroup().addContainerGap()
+				.addGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
 						.addComponent(Contenedor, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
 						.addGroup(gl_panel_2.createSequentialGroup()
-							.addComponent(lblRutaDeAcceso, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnUpdate, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap())
-		);
-		gl_panel_2.setVerticalGroup(
-			gl_panel_2.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_2.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnAdd)
-						.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnUpdate))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(Contenedor, GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		
+								.addComponent(lblRutaDeAcceso, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(btnUpdate, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)))
+				.addContainerGap()));
+		gl_panel_2.setVerticalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
+						.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE).addComponent(btnAdd)
+								.addComponent(lblRutaDeAcceso, GroupLayout.PREFERRED_SIZE, 25,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnUpdate))
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(Contenedor, GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE).addContainerGap()));
+
 		Contenedor.setLayout(new CardLayout(0, 0));
 
 		JPanel VisualizarLicencias = new JPanel();
@@ -173,37 +169,45 @@ public class VistaWB extends JFrame implements Vista {
 		table.setColumnSelectionAllowed(false);
 		scrollPane_1.setViewportView(table);
 		VisualizarLicencias.add(scrollPane_1);
-		
+
 		JLabel label = new JLabel("");
 		label.setBounds(10, 0, 160, 179);
 		VisualizarLicencias.add(label);
 		label.setIcon(new ImageIcon(VistaWB.class.getResource("/Codigo/newlogo.png")));
-		
+
 		JLabel lblHacerDobleClick = new JLabel("Recuerda: Hacer doble click sobre la tabla para editar datos.");
-		lblHacerDobleClick.setBounds(180, 80, 460, 14);
+		lblHacerDobleClick.setBounds(182, 155, 460, 14);
 		VisualizarLicencias.add(lblHacerDobleClick);
-		
-		JLabel lblBuscarPorNumero = new JLabel("Buscar por Numero de Registro");
-		lblBuscarPorNumero.setBounds(180, 24, 292, 14);
-		VisualizarLicencias.add(lblBuscarPorNumero);
-		lblBuscarPorNumero.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		
+
 		txtnRegistro = new JTextField();
-		txtnRegistro.setBounds(180, 49, 292, 20);
+		txtnRegistro.setBounds(182, 98, 217, 20);
 		VisualizarLicencias.add(txtnRegistro);
 		txtnRegistro.setColumns(10);
+		
+		rdbtnNumReg = new JRadioButton("Buscar por Numero de Registro");
+		rdbtnNumReg.setSelected(true);
+		buttonGroup.add(rdbtnNumReg);
+		rdbtnNumReg.setBounds(182, 28, 259, 23);
+		VisualizarLicencias.add(rdbtnNumReg);
+		
+		rdbtnCif = new JRadioButton("Buscar por CIF");
+		buttonGroup.add(rdbtnCif);
+		rdbtnCif.setBounds(182, 61, 217, 23);
+		VisualizarLicencias.add(rdbtnCif);
+
 		txtnRegistro.addKeyListener(new KeyAdapter() {
-	           @Override
-	           public void keyTyped(KeyEvent arg0) {
-	                  txtnRegistro.addKeyListener(new KeyAdapter() {
-	                         public void keyReleased(final KeyEvent arg0) {
-	                               filtroRegistro();
-	                         }
-	                  });
-	                  trOrden = new TableRowSorter(table.getModel());
-	                  table.setRowSorter(trOrden);
-	           }
-	    });
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				txtnRegistro.addKeyListener(new KeyAdapter() {
+					public void keyReleased(final KeyEvent arg0) {
+						filtroRegistro();
+					}
+				});
+				trOrden = new TableRowSorter(table.getModel());
+				table.setRowSorter(trOrden);
+			}
+		});
+
 		panel_2.setLayout(gl_panel_2);
 		contentPane.setLayout(null);
 		contentPane.add(btnConfiguracion);
@@ -228,10 +232,15 @@ public class VistaWB extends JFrame implements Vista {
 		Object[][] tabla = modelo2.getTabla();
 		this.RellenarTabla(tabla);
 	}
-	
+
 	public void filtroRegistro() {
-    	trOrden.setRowFilter(RowFilter.regexFilter(txtnRegistro.getText(), 0));
+		if (rdbtnNumReg.isSelected()){
+			trOrden.setRowFilter(RowFilter.regexFilter(txtnRegistro.getText(), 0));
+		} else if (rdbtnCif.isSelected()){
+			trOrden.setRowFilter(RowFilter.regexFilter(txtnRegistro.getText(), 4));	
+		} else {
+			trOrden.setRowFilter(RowFilter.regexFilter(txtnRegistro.getText(), 0));
+		}
 
-    }
+	}
 }
-

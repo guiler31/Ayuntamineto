@@ -2,7 +2,9 @@ package Codigo;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -41,6 +43,7 @@ public class VistaFicheroIni extends JFrame implements Vista{
 	/**
 	 * Create the frame.
 	 */
+
 	public VistaFicheroIni() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
