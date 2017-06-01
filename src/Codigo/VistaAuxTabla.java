@@ -37,40 +37,417 @@ public class VistaAuxTabla extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtfRefCastral;
 	private JTextField txtfLocal;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField txtfCp2;
-	private JTextField txtfTelFijo2;
-	private JTextField txtfTelMovil2;
-	private JTextField txtfFax;
-	private JTextField txtfNombre2;
-	private JTextField txtfApellidos2;
-	private JTextField txtfDni2;
-	private JTextField txtfDireccion2;
-	private JTextField txtfMunicipio2;
-	private JTextField textField_17;
-	private JTextField textField_23;
-	private JLabel lblNombre2;
-	private JLabel lblApellidos2;
-	private JLabel lblDocumentoIdentidad;
-	private JLabel lblDireccion_1;
-	private JLabel lblMunicipio_1;
-	private JLabel lblCodigoPostal_1;
-	private JLabel lblTlfFijo_1;
-	private JLabel lblTlfMovil_1;
-	private JLabel lblFax_1;
-	private JCheckBox chckbxRepresentate;
+	private JTextField txtfTipo;
+	private JTextField txtfEmplazamiento;
+	private JTextField txtfCuota;
+	private JTextField txtfIntNombre;
+	private JTextField txtfIntApellidos;
+	private JTextField txtfIntCif;
+	private JTextField txtfIntDireccion;
+	private JTextField txtfIntMunicipio;
+	private JTextField txtfIntEmail;
+	private JTextField txtfIntTlfMovil;
+	private JTextField txtfIntTlfFijo;
+	private JTextField txtfIntFax;
+	private JTextField txtfIntCP;
+	private JTextField txtfRepCP;
+	private JTextField txtfRepTlfFijo;
+	private JTextField txtfRepTlfMovil;
+	private JTextField txtfRepFax;
+	private JTextField txtfRepNombre;
+	private JTextField txtfRepApellidos;
+	private JTextField txtfRepDNI;
+	private JTextField txtfRepDireccion;
+	private JTextField txtfRepMunicipio;
+	private JTextField txtfFechaInicio;
+	private JTextField txtfFechaSol;
+	private JTextField txtfTipoSuelo;
+	private JCheckBox chckbxEscritura;
+	private JCheckBox chckbxModelo;
+	private JCheckBox chckbxPlanos;
+	private JCheckBox chckbxCd;
+	private JCheckBox chckbxMemoria;
+	private JCheckBox chckbxFotografia;
+	private JCheckBox chckbxFotocopiaDni;
+	private JCheckBox chckbxCertCol;
+	private JCheckBox chckbxJustifacanteDePago;
+	private JCheckBox chckbxCertModelo;
+	private JCheckBox chckbxCertModelo_1;
+	private JCheckBox chckbxLicenciaObra;
+	private JCheckBox chckbxOtrasAutorizaciones;
+	private JTextPane txtPDescripcion;
+	
+	
+
+
+	public String getTxtfRefCastral() {
+		return txtfRefCastral.getText();
+	}
+
+	public void setTxtfRefCastral(JTextField txtfRefCastral) {
+		this.txtfRefCastral = txtfRefCastral;
+	}
+
+	public String getTxtfLocal() {
+		return txtfLocal.getText();
+	}
+
+	public void setTxtfLocal(JTextField txtfLocal) {
+		this.txtfLocal = txtfLocal;
+	}
+
+	public String getTxtfTipo() {
+		return txtfTipo.getText();
+	}
+
+	public void setTxtfTipo(JTextField txtfTipo) {
+		this.txtfTipo = txtfTipo;
+	}
+
+	public String getTxtfEmplazamiento() {
+		return txtfEmplazamiento.getText();
+	}
+
+	public void setTxtfEmplazamiento(JTextField txtfEmplazamiento) {
+		this.txtfEmplazamiento = txtfEmplazamiento;
+	}
+
+	public String getTxtfCuota() {
+		return txtfCuota.getText();
+	}
+
+	public void setTxtfCuota(JTextField txtfCuota) {
+		this.txtfCuota = txtfCuota;
+	}
+
+	public String getTxtfIntNombre() {
+		return txtfIntNombre.getText();
+	}
+
+	public void setTxtfIntNombre(JTextField txtfIntNombre) {
+		this.txtfIntNombre = txtfIntNombre;
+	}
+
+	public String getTxtfIntApellidos() {
+		return txtfIntApellidos.getText();
+	}
+
+	public void setTxtfIntApellidos(JTextField txtfIntApellidos) {
+		this.txtfIntApellidos = txtfIntApellidos;
+	}
+
+	public String getTxtfIntCif() {
+		return txtfIntCif.getText();
+	}
+
+	public void setTxtfIntCif(JTextField txtfIntCif) {
+		this.txtfIntCif = txtfIntCif;
+	}
+
+	public String getTxtfIntDireccion() {
+		return txtfIntDireccion.getText();
+	}
+
+	public void setTxtfIntDireccion(JTextField txtfIntDireccion) {
+		this.txtfIntDireccion = txtfIntDireccion;
+	}
+
+	public String getTxtfIntMunicipio() {
+		return txtfIntMunicipio.getText();
+	}
+
+	public void setTxtfIntMunicipio(JTextField txtfIntMunicipio) {
+		this.txtfIntMunicipio = txtfIntMunicipio;
+	}
+
+	public String getTxtfIntEmail() {
+		return txtfIntEmail.getText();
+	}
+
+	public void setTxtfIntEmail(JTextField txtfIntEmail) {
+		this.txtfIntEmail = txtfIntEmail;
+	}
+
+	public String getTxtfIntTlfMovil() {
+		return txtfIntTlfMovil.getText();
+	}
+
+	public void setTxtfIntTlfMovil(JTextField txtfIntTlfMovil) {
+		this.txtfIntTlfMovil = txtfIntTlfMovil;
+	}
+
+	public String getTxtfIntTlfFijo() {
+		return txtfIntTlfFijo.getText();
+	}
+
+	public void setTxtfIntTlfFijo(JTextField txtfIntTlfFijo) {
+		this.txtfIntTlfFijo = txtfIntTlfFijo;
+	}
+
+	public String getTxtfIntFax() {
+		return txtfIntFax.getText();
+	}
+
+	public void setTxtfIntFax(JTextField txtfIntFax) {
+		this.txtfIntFax = txtfIntFax;
+	}
+
+	public String getTxtfIntCP() {
+		return txtfIntCP.getText();
+	}
+
+	public void setTxtfIntCP(JTextField txtfIntCP) {
+		this.txtfIntCP = txtfIntCP;
+	}
+
+	public String getTxtfRepCP() {
+		return txtfRepCP.getText();
+	}
+
+	public void setTxtfRepCP(JTextField txtfRepCP) {
+		this.txtfRepCP = txtfRepCP;
+	}
+
+	public String getTxtfRepTlfFijo() {
+		return txtfRepTlfFijo.getText();
+	}
+
+	public void setTxtfRepTlfFijo(JTextField txtfRepTlfFijo) {
+		this.txtfRepTlfFijo = txtfRepTlfFijo;
+	}
+
+	public String getTxtfRepTlfMovil() {
+		return txtfRepTlfMovil.getText();
+	}
+
+	public void setTxtfRepTlfMovil(JTextField txtfRepTlfMovil) {
+		this.txtfRepTlfMovil = txtfRepTlfMovil;
+	}
+
+	public String getTxtfRepFax() {
+		return txtfRepFax.getText();
+	}
+
+	public void setTxtfRepFax(JTextField txtfRepFax) {
+		this.txtfRepFax = txtfRepFax;
+	}
+
+	public String getTxtfRepNombre() {
+		return txtfRepNombre.getText();
+	}
+
+	public void setTxtfRepNombre(JTextField txtfRepNombre) {
+		this.txtfRepNombre = txtfRepNombre;
+	}
+
+	public String getTxtfRepApellidos() {
+		return txtfRepApellidos.getText();
+	}
+
+	public void setTxtfRepApellidos(JTextField txtfRepApellidos) {
+		this.txtfRepApellidos = txtfRepApellidos;
+	}
+
+	public String getTxtfRepDNI() {
+		return txtfRepDNI.getText();
+	}
+
+	public void setTxtfRepDNI(JTextField txtfRepDNI) {
+		this.txtfRepDNI = txtfRepDNI;
+	}
+
+	public String getTxtfRepDireccion() {
+		return txtfRepDireccion.getText();
+	}
+
+	public void setTxtfRepDireccion(JTextField txtfRepDireccion) {
+		this.txtfRepDireccion = txtfRepDireccion;
+	}
+
+	public String getTxtfRepMunicipio() {
+		return txtfRepMunicipio.getText();
+	}
+
+	public void setTxtfRepMunicipio(JTextField txtfRepMunicipio) {
+		this.txtfRepMunicipio = txtfRepMunicipio;
+	}
+
+	public String getTxtfFechaInicio() {
+		return txtfFechaInicio.getText();
+	}
+
+	public void setTxtfFechaInicio(JTextField txtfFechaInicio) {
+		this.txtfFechaInicio = txtfFechaInicio;
+	}
+
+	public String getTxtfFechaSol() {
+		return txtfFechaSol.getText();
+	}
+
+	public void setTxtfFechaSol(JTextField txtfFechaSol) {
+		this.txtfFechaSol = txtfFechaSol;
+	}
+
+	public String getTxtfTipoSuelo() {
+		return txtfTipoSuelo.getText();
+	}
+
+	public void setTxtfTipoSuelo(JTextField txtfTipoSuelo) {
+		this.txtfTipoSuelo = txtfTipoSuelo;
+	}
+
+	public boolean getChckbxEscritura() {
+		if(chckbxEscritura.isSelected()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public void setChckbxEscritura(JCheckBox chckbxEscritura) {
+		this.chckbxEscritura = chckbxEscritura;
+	}
+
+	public boolean getChckbxModelo() {
+		if(chckbxModelo.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxModelo(JCheckBox chckbxModelo) {
+		this.chckbxModelo = chckbxModelo;
+	}
+
+	public boolean getChckbxPlanos() {
+		if(chckbxPlanos.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxPlanos(JCheckBox chckbxPlanos) {
+		this.chckbxPlanos = chckbxPlanos;
+	}
+
+	public boolean getChckbxCd() {
+		if(chckbxCd.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxCd(JCheckBox chckbxCd) {
+		this.chckbxCd = chckbxCd;
+	}
+
+	public boolean getChckbxMemoria() {
+		if(chckbxMemoria.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxMemoria(JCheckBox chckbxMemoria) {
+		this.chckbxMemoria = chckbxMemoria;
+	}
+
+	public boolean getChckbxFotografia() {
+		if(chckbxFotografia.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxFotografia(JCheckBox chckbxFotografia) {
+		this.chckbxFotografia = chckbxFotografia;
+	}
+
+	public boolean getChckbxFotocopiaDni() {
+		if(chckbxFotocopiaDni.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxFotocopiaDni(JCheckBox chckbxFotocopiaDni) {
+		this.chckbxFotocopiaDni = chckbxFotocopiaDni;
+	}
+
+	public boolean getChckbxCertCol() {
+		if(chckbxCertCol.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxCertCol(JCheckBox chckbxCertCol) {
+		this.chckbxCertCol = chckbxCertCol;
+	}
+
+	public boolean getChckbxJustifacanteDePago() {
+		if(chckbxJustifacanteDePago.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxJustifacanteDePago(JCheckBox chckbxJustifacanteDePago) {
+		this.chckbxJustifacanteDePago = chckbxJustifacanteDePago;
+	}
+
+	public boolean getChckbxCertModelo() {
+		if(chckbxCertModelo.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxCertModelo(JCheckBox chckbxCertModelo) {
+		this.chckbxCertModelo = chckbxCertModelo;
+	}
+
+	public boolean getChckbxCertModelo_1() {
+		if(chckbxCertModelo_1.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxCertModelo_1(JCheckBox chckbxCertModelo_1) {
+		this.chckbxCertModelo_1 = chckbxCertModelo_1;
+	}
+
+	public boolean getChckbxLicenciaObra() {
+		if(chckbxLicenciaObra.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxLicenciaObra(JCheckBox chckbxLicenciaObra) {
+		this.chckbxLicenciaObra = chckbxLicenciaObra;
+	}
+
+	public boolean getChckbxOtrasAutorizaciones() {
+		if(chckbxOtrasAutorizaciones.isSelected()){
+			return true;
+		}else{
+			return false;
+		}	}
+
+	public void setChckbxOtrasAutorizaciones(JCheckBox chckbxOtrasAutorizaciones) {
+		this.chckbxOtrasAutorizaciones = chckbxOtrasAutorizaciones;
+	}
+
+	public String getTxtPDescripcion() {
+		return txtPDescripcion.getText();
+	}
+
+	public void setTxtPDescripcion(JTextPane txtPDescripcion) {
+		this.txtPDescripcion = txtPDescripcion;
+	}
+
 
 	public VistaAuxTabla() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
